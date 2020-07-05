@@ -1,8 +1,8 @@
-import { SearchOperation } from './lib/Search/SearchOperation';
-import { CollectionOperation } from './lib/Cloud/CollectionOperation';
-import { ConfigsetOperation } from './lib/Cloud/ConfigsetOperation';
-import { AliasOperation } from './lib/Cloud/AliasOperation';
-import { IndexOperation } from './lib/Index/IndexOperation';
+import { SearchOperation } from './lib/search/SearchOperation';
+import { CollectionOperation } from './lib/cloud/CollectionOperation';
+import { ConfigsetOperation } from './lib/cloud/ConfigsetOperation';
+import { AliasOperation } from './lib/cloud/AliasOperation';
+import { IndexOperation } from './lib/index/IndexOperation';
 
 export class SolrClient {
     public searchOperation: SearchOperation;
