@@ -4,6 +4,10 @@
   "description": "A Solr client for TypeScript",
   "main": "dist/SolrClient.js",
   "types": "dist/SolrClient.d.ts",
+  "repository": "https://github.com/h-sslefree/solrts",
+  "publishConfig": {
+    "access": "public"
+  },
   "typesVersions": {
     ">=3.8.3": {
       "*": [
