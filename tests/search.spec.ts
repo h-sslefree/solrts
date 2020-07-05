@@ -1,9 +1,9 @@
 import 'jasmine';
 import * as express from 'express';
 import { Router } from 'express';
-import { SearchOperation } from '../src/lib/Search/SearchOperation';
-import { LuceneQuery } from '../src/lib/Search/LuceneQuery';
-import { SearchFilter } from '../src/lib/Search/SearchFilter';
+import { SearchOperation } from '../src/lib/search/SearchOperation';
+import { LuceneQuery } from '../src/lib/search/LuceneQuery';
+import { SearchFilter } from '../src/lib/search/SearchFilter';
 
 describe('SearchOperation', () => {
     const apiVersion = 8.1;

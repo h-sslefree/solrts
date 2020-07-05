@@ -2,7 +2,7 @@ import 'jasmine';
 import * as express from 'express';
 import { NextFunction, Request, Response, Router } from 'express';
 import * as bodyParser from 'body-parser';
-import { ConfigsetOperation } from '../src/lib/Cloud/ConfigsetOperation';
+import { ConfigsetOperation } from '../src/lib/cloud/ConfigsetOperation';
 import * as crypto from 'crypto';
 import { readFileSync } from 'fs';
 

@@ -1,7 +1,7 @@
 import 'jasmine';
 import * as express from 'express';
 import { Router } from 'express';
-import { CollectionOperation } from '../src/lib/Cloud/CollectionOperation';
+import { CollectionOperation } from '../src/lib/cloud/CollectionOperation';
 
 describe('Collection management', () => {
     const apiVersion = 8.1;

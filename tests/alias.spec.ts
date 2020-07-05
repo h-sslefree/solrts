@@ -1,7 +1,7 @@
 import 'jasmine';
 import * as express from 'express';
 import { Router } from 'express';
-import { AliasOperation } from '../src/lib/Cloud/AliasOperation';
+import { AliasOperation } from '../src/lib/cloud/AliasOperation';
 
 describe('Collection aliasing', () => {
     const apiVersion = 8.1;
