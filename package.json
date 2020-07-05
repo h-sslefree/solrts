@@ -1,0 +1,55 @@
+{
+  "name": "solrts",
+  "version": "1.0.0",
+  "description": "A Solr client for TypeScript",
+  "main": "dist/SolrClient.js",
+  "types": "dist/SolrClient.d.ts",
+  "typesVersions": {
+    ">=3.8.3": {
+      "*": [
+        "dist/SolrClient.d.ts"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">= 12.3.0"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "test": "node_modules/.bin/jasmine-ts --config=tests/jasmine.json",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "build": "./node_modules/.bin/rimraf -g \"dist\" && tsc"
+  },
+  "keywords": [
+    "solr",
+    "typescript"
+  ],
+  "author": "hasslefree.nl",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.6",
+    "@types/jasmine": "^3.5.10",
+    "@types/node": "^14.0.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jasmine": "^3.5.0",
+    "jasmine-spec-reporter": "^5.0.2",
+    "jasmine-ts": "^0.3.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.10.1",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {}
+}
