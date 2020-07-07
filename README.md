@@ -1,4 +1,5 @@
 # SolrTS
+![Build status on Travis](https://travis-ci.org/h-sslefree/solrts.svg?branch=master)
 
 A TypeScript client for Solr.
 

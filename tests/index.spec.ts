@@ -2,7 +2,7 @@ import 'jasmine';
 import * as express from 'express';
 import { NextFunction, Request, Response, Router } from 'express';
 import * as bodyParser from 'body-parser';
-import { IndexOperation } from '../src/lib/Index/IndexOperation';
+import { IndexOperation } from '../src/lib/index/IndexOperation';
 
 describe('Index operation', () => {
     const apiVersion = 8.1;
