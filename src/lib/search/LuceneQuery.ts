@@ -1,9 +1,10 @@
-import { ISearchQuery } from './ISearchQuery';
+import { SearchQuery } from './SearchQuery';
 
 /**
- * https://lucene.apache.org/solr/guide/6_6/the-standard-LuceneQuery-parser.html#the-standard-LuceneQuery-parser
+ * https://lucene.apache.org/solr/guide/8_5/the-standard-query-parser.html
  */
-export class LuceneQuery implements ISearchQuery {
+export class LuceneQuery extends SearchQuery {
+
     constructor(
         private _terms: string[] = new Array<string>(),
         private _field: string = '',
@@ -12,8 +13,13 @@ export class LuceneQuery implements ISearchQuery {
         private _op: 'AND' | 'OR' = 'AND',
         private _df: string[] = new Array<string>(),
         private _sow: boolean = true,
-        public defType: 'lucene' | 'dismax' | 'edismax' = 'lucene'
-    ) { }
+    ) {
+        super();
+    }
+
+    public getDefType(): 'lucene' | 'dismax' | 'edismax' {
+        return 'lucene';
+    }
 
     /**
      *

@@ -1,7 +1,7 @@
 {
   "name": "solrts",
   "version": "1.0.0",
-  "description": "A Solr client for TypeScript",
+  "description": "A TypeScript client for Solr",
   "main": "dist/SolrClient.js",
   "types": "dist/SolrClient.d.ts",
   "repository": "https://github.com/h-sslefree/solrts",

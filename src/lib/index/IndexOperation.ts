@@ -1,7 +1,7 @@
 import { SolrRequest } from '../SolrRequest';
 import { Readable } from 'stream';
 
-// https://lucene.apache.org/solr/guide/6_6/uploading-data-with-index-handlers.html#UploadingDatawithIndexHandlers-AddingMultipleJSONDocuments
+// https://lucene.apache.org/solr/guide/8_5/uploading-data-with-index-handlers.html#UploadingDatawithIndexHandlers-AddingMultipleJSONDocuments
 
 export class IndexOperation extends SolrRequest {
     private _collectionName: string = '';
