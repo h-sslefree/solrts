@@ -2,8 +2,6 @@ import { SolrRequest } from '../SolrRequest';
 import { Readable } from 'stream';
 import { createReadStream } from 'fs';
 
-// https://lucene.apache.org/solr/guide/8_4/configsets-api.html#configsets-api
-
 export class ConfigsetOperation extends SolrRequest {
     private readonly _wt = 'json';
     private _action: 'CREATE' | 'DELETE' | 'UPLOAD' | 'LIST' = 'CREATE';

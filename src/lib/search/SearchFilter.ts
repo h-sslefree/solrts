@@ -1,6 +1,6 @@
 /**
  * A SearchFilter filters the search results on results that have an accepted value for the field.
- * It is send as 'fq' to Solr (see https://lucene.apache.org/solr/guide/6_6/common-query-parameters.html#CommonQueryParameters-Thefq_FilterQuery_Parameter).
+ * It is send as 'fq' to Solr (see https://lucene.apache.org/solr/guide/8_5/common-query-parameters.html#CommonQueryParameters-Thefq_FilterQuery_Parameter).
  */
 export class SearchFilter {
     private _fromValue: string | number | Date = '';
@@ -8,7 +8,7 @@ export class SearchFilter {
     private _equalsValue: string | number | Date = '';
     private _orsValue: (string | number | Date)[] = [];
 
-    constructor(private _field: string) {}
+    constructor(private _field: string) { }
 
     /**
      * A list of values where the field should contain one or more from

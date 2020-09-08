@@ -1,33 +1,19 @@
-import { ISearchQuery } from './ISearchQuery';
+import { SearchQuery } from './SearchQuery';
 import { LuceneQuery } from './LuceneQuery';
 import { SolrRequest } from '../SolrRequest';
 import { SearchFilter } from './SearchFilter';
 import { Readable } from 'stream';
 
 export class SearchOperation extends SolrRequest {
-    // https://lucene.apache.org/solr/guide/6_6/common-query-parameters.html#common-query-parameters
     private _sortField: string = '';
     private _sortOrder: 'asc' | 'desc' = 'asc';
     private _start: number = 0;
     private _rows: number = 0;
     private _fq: SearchFilter[] = new Array<SearchFilter>();
     private _fl: string[] = new Array<string>();
-    // private _debug: 'timing' | 'results' | 'query parameter' = 'timing';
-    // private _explainOther = false;
-    // private _timeAllowed: number = 0;
-    // private _segmentTerminateEarly: boolean = false;
-    // private _omitHeader: boolean = false;
     private readonly _wt = 'json';
-    // private _logParamsList: string = '';
-    // private _echoParams: 'none' | 'all' | 'explicit' = 'explicit';
-
-    // default to Lucene query
-    private _q: ISearchQuery = new LuceneQuery();
-
-    // in which collection should be searched
+    private _q: SearchQuery = new LuceneQuery();
     private _collection = '';
-
-    // requesthandler that should be used
     private _requesthandler = '';
 
     /**
@@ -41,7 +27,7 @@ export class SearchOperation extends SolrRequest {
     /**
      * @param {ISearchQuery} query : the query where to search for
      */
-    public for(query: ISearchQuery): SearchOperation {
+    public for(query: SearchQuery): SearchOperation {
         this._q = query;
         return this;
     }
@@ -82,7 +68,6 @@ export class SearchOperation extends SolrRequest {
     }
 
     /**
-     * 
      * @param on : field to sort on
      * @param order : order to sort the values in the field on
      */
@@ -115,7 +100,7 @@ export class SearchOperation extends SolrRequest {
     protected httpQueryString(): string {
         let request = `wt=${this._wt}`;
         if (this._q) {
-            request = `${request}&q=${this._q.toString()}&defType=${this._q.defType}`;
+            request = `${request}&q=${this._q.toString()}&defType=${this._q.getDefType()}`;
         }
         if (this._sortField) {
             request = `${request}&sort=${this._sortField} ${this._sortOrder}`;
