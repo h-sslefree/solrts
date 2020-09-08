@@ -1,10 +1,31 @@
 language: node_js
 node_js:
-  - 12
+- 12
 os:
-  - linux
-  - osx
-
-script:
-  - "npm install"
-  - "npm test"
+- linux
+- osx
+jobs:
+  include:
+  - stage: test
+    script:
+    - npm install
+    - npm test
+    branches:
+      except:
+      - master
+  - stage: release
+    if: branch = master
+    script:
+    - npx semantic-release
+    deploy:
+      provider: npm
+      email: npm@hasslefree.nl
+      api_key:
+        secure: 7Bwy5W7QDgDYbs/lK57uuehM8yzZpUdxZWMDOomQSzYT850mA4CzVsxg4RlQhvARFfm/jjRPasdMC2zoPlgyQK4y22sYKssUS881DlQ11vJEU/+WyjK8igF/ZnpXNFHEj97Sb5/kswBgedf6IB8janEPseTuHR00J2Iguys7MJZ4wdrpZNBbZ+6ZvwWSw1pZeWAXAN/xr6lU3v/S3jbBww3PoHyXgbXLxpvS2khEE+sg6oHWyn3xiJW8IHNvUF9gx3MMhP2MkpyK94mDduL05nORD/WkQKUjhSEyqDG+uhDulgoJjdF2Hmk6dNWAqf7dW770BHcFmDXDHPQUIN1+MeGpKFy2DUT0M29FIVD4g2yYD7IrXsGagb6VhHXok8T+df/MmmLuAx/vGAOsNLelXTJXsUIGZOelUWa9wFIiSoCfRas7+ETLDvoFJWZXPyQSP+JNN3ade+UDpimGLh4sFJA1+aPY7HjlUtvJwAwCokcLzVdq89ddKddRp2T4lTZfr4SXicPFtE7W25TcabvKHALanJvWD0BgfHslfGjREkRP0MKonqz2hOkvlh6EhqgF8Psfhm/Kxpw+4E4CUt7JONl437I8UrAw+hne4niSdO7FtMsrJuPj4a5tll+3IzPUsmCcp1robeRqfCBsphMWTbotIiSoEpDaeVTVA/Kba9c=
+      on:
+        tags: true
+        repo: h-sslefree/solrts
+      skip_cleanup: 'true'
+env:
+  global:
+    secure: PvbCnzrq/NL6aGetEhdi0bRK2pvJEKUnANGX0zE+AE2eXdKAtE0iqE50fRHPGsRXQ917lT6Lxx1anMlNW9mcLJwHhnxYpkTOMpZDBvaSwI9FOUpfieH0lZnmys71Nl23b/Oig2ET0Ia6/mTV2mQw0DQQNXCRcEYZVyEdI+Fxz+XRB318HGImKVU6jwlQe6coQ2bff2gBMMYm5ici7+5ptGSzbK3JhvpToqHZEVo+4gRB7SHBdkYsV/tGQW7DSwRWctUZeYQfQuRtqHGDncJwOwJsb1j16Barpx4DXk0bnIIjezzaiHiDk4kAnYTLPQQAupvfJkWu5mnxQND4cxGy+cXWP3lvrfljfk024CU52yzgrmoZCPPSVxwX4sXrQT10fNulnk9v2dNapefnVLnJbXvTV/iNwGKolScsP0QfIPkpLoqx3A1SQHZqG1yP0NA9LduA4beJWJwK15bsq78NcIkRsPwniM4iEPAGI2xnZsTRd9FPWftZ1Wc4KmcZzTPQqc+XYQOo3S0SCx7QGNxjcqFCxgB9a6Skykl0nW3LmSt9wWMtEJz+m7nm0ZJyb+ALcHzaJjcueLAAvrWsDjquFoCS5gyS2yjjgSah+VS3ODtCcj21G6jaW9Iqmk0bjbdJtUN44M3HYDYfsKrx8cXWyIjhASU3FsmfCFYv/keQN3w=
