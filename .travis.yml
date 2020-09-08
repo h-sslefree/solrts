@@ -13,7 +13,6 @@ addons:
 script:
   - npm install
   - npm test
-  - sonar-scanner
 
 jobs:
   include:
