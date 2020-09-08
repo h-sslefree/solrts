@@ -1,36 +1,13 @@
 import { SolrRequest } from '../SolrRequest';
 import { Readable } from 'stream';
 
-// https://lucene.apache.org/solr/guide/8_2/collection-management.html#collection-management
-
 export class CollectionOperation extends SolrRequest {
     private _action: 'CREATE' | 'DELETE' = 'CREATE';
-
     private _name: string = '';
     private _routerName: 'compositeId' | 'implicit' = 'compositeId';
     private _numShards: number = 0;
     private _shards: number = 0;
     private _collectionConfigName: string = '';
-
-    // private _replicationFactor: number = 1;
-    // private _nrtReplicas: number = 1;
-    // private _tlogReplicas: number = 1;
-    // private _pullReplicas: number = 1;
-    // private _maxShardsPerNode: number = 1;
-    // private _createNodeSet: string = '';
-    // private _createNodeSetshuffle: boolean = true;
-
-    // private _routerField: string = '';
-    // private _property: Record<string, string>[] = new Array<Record<string, string>>();
-    // private _autoAddReplicas: boolean = false;
-    // private _async: boolean = false;
-    // private _rule: string = '';
-    // private _snitch: string = '';
-    // private _policy: string = '';
-    // private _waitForFinalState: boolean = false;
-    // private _withCollection: string = '';
-    // private _alias: string = '';
-
     private readonly _wt = 'json';
 
     constructor(private apiVersion: number) {
@@ -49,7 +26,6 @@ export class CollectionOperation extends SolrRequest {
     }
 
     /**
-     *
      * @param name name of collection that should be deleted
      */
     public prepareDelete(name: string): CollectionOperation {
