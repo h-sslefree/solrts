@@ -5,29 +5,15 @@ import { SearchFilter } from './SearchFilter';
 import { Readable } from 'stream';
 
 export class SearchOperation extends SolrRequest {
-    // https://lucene.apache.org/solr/guide/8_5/common-query-parameters.html#common-query-parameters
     private _sortField: string = '';
     private _sortOrder: 'asc' | 'desc' = 'asc';
     private _start: number = 0;
     private _rows: number = 0;
     private _fq: SearchFilter[] = new Array<SearchFilter>();
     private _fl: string[] = new Array<string>();
-    // private _debug: 'timing' | 'results' | 'query parameter' = 'timing';
-    // private _explainOther = false;
-    // private _timeAllowed: number = 0;
-    // private _segmentTerminateEarly: boolean = false;
-    // private _omitHeader: boolean = false;
     private readonly _wt = 'json';
-    // private _logParamsList: string = '';
-    // private _echoParams: 'none' | 'all' | 'explicit' = 'explicit';
-
-    // default to Lucene query
     private _q: SearchQuery = new LuceneQuery();
-
-    // in which collection should be searched
     private _collection = '';
-
-    // requesthandler that should be used
     private _requesthandler = '';
 
     /**
@@ -82,7 +68,6 @@ export class SearchOperation extends SolrRequest {
     }
 
     /**
-     * 
      * @param on : field to sort on
      * @param order : order to sort the values in the field on
      */

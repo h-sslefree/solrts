@@ -1,5 +1,3 @@
-// https://lucene.apache.org/solr/guide/8_2/collection-aliasing.html#collection-aliasing
-
 import { SolrRequest } from '../SolrRequest';
 import { Readable } from 'stream';
 

@@ -1,8 +1,6 @@
 import { SolrRequest } from '../SolrRequest';
 import { Readable } from 'stream';
 
-// https://lucene.apache.org/solr/guide/8_5/uploading-data-with-index-handlers.html#UploadingDatawithIndexHandlers-AddingMultipleJSONDocuments
-
 export class IndexOperation extends SolrRequest {
     private _collectionName: string = '';
     private _adds: any[] = [];
@@ -21,7 +19,6 @@ export class IndexOperation extends SolrRequest {
     }
 
     /**
-     *
      * @param adds : the objects that should be added to the index
      * @param deletes : the ids of the documents that should be removed from the index
      */

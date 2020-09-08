@@ -1,8 +1,5 @@
 import { SearchQuery } from './SearchQuery';
 
-/**
- * https://lucene.apache.org/solr/guide/8_5/the-standard-query-parser.html
- */
 export class LuceneQuery extends SearchQuery {
 
     constructor(
@@ -22,7 +19,6 @@ export class LuceneQuery extends SearchQuery {
     }
 
     /**
-     *
      * @param term : the term to search on
      */
     public term(term: string): LuceneQuery {
@@ -32,7 +28,6 @@ export class LuceneQuery extends SearchQuery {
     }
 
     /**
-     *
      * @param field : the field to search in, defaults to _df
      */
     public in(field: string): LuceneQuery {
@@ -41,7 +36,6 @@ export class LuceneQuery extends SearchQuery {
     }
 
     /**
-     *
      * @param weight : the weight for matches of <term> in field <in>
      */
     public weight(weight: number): LuceneQuery {
