@@ -1,26 +1,27 @@
 language: node_js
 node_js:
   - 12
+
 os:
   - linux
   - osx
+
+addons:
+  sonarcloud:
+    organization: "h-sslefree"
+
+script:
+  - npm install
+  - npm test
+  - sonar-scanner
+
 jobs:
   include:
-    - stage: test
-      script:
-        - npm install
-        - npm test
-      branches:
-        except:
-          - master
     - stage: release
       if: branch = master
       deploy:
         provider: script
-        on:
-          tags: true
-          repo: h-sslefree/solrts
         skip_cleanup: "true"
         script:
           - npx semantic-release
-        
+                
