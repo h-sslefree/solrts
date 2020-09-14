@@ -110,7 +110,7 @@ if (solrAnswer && solrAnswer.response && solrAnswer.response.docs) {
 #### [filter](https://lucene.apache.org/solr/guide/8_5/common-query-parameters.html#CommonQueryParameters-Thefq_FilterQuery_Parameter) search results
 ##### filter on a value in a specific field
 ``` ts
-import { SolrClient } from 'solrts';
+import { SolrClient, SearchFilter } from 'solrts';
 const solrSearchOperation = new SolrClient(8.5).searchOperation;
 solrSearchOperation
     .in('AnExistingCollection')
@@ -122,7 +122,7 @@ if (solrAnswer && solrAnswer.response && solrAnswer.response.docs) {
 ```
 ##### filter on multiple values (or) in a specific field
 ``` ts
-import { SolrClient } from 'solrts';
+import { SolrClient, SearchFilter } from 'solrts';
 const solrSearchOperation = new SolrClient(8.5).searchOperation;
 solrSearchOperation
     .in('AnExistingCollection')
@@ -134,7 +134,7 @@ if (solrAnswer && solrAnswer.response && solrAnswer.response.docs) {
 ```
 ##### filter on a range of values in a specific field
 ``` ts
-import { SolrClient } from 'solrts';
+import { SolrClient, SearchFilter } from 'solrts';
 const solrSearchOperation = new SolrClient(8.5).searchOperation;
 solrSearchOperation
     .in('AnExistingCollection')
