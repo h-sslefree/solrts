@@ -1,5 +1,5 @@
 # SolrTS
-[![Build status on Travis](https://travis-ci.org/h-sslefree/solrts.svg?branch=master)](https://travis-ci.org/github/h-sslefree/solrts) [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![Build status on Travis](https://travis-ci.org/h-sslefree/solrts.svg?branch=master)](https://travis-ci.org/github/h-sslefree/solrts) [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=h-sslefree_solrts&metric=alert_status)](https://sonarcloud.io/dashboard?id=h-sslefree_solrts)
 
 # A TypeScript client for Solr
 Using [Solr](https://lucene.apache.org/solr/) from JavaScript clients [may be straightforward](https://lucene.apache.org/solr/guide/8_5/using-javascript.html) but Solr uses shorthand url parameters to specify your desires which tend to lead to hard to read search logic in your application quickly. We were in desperate need of a TypeScript library that:
