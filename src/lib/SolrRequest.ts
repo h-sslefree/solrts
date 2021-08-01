@@ -26,7 +26,13 @@ export abstract class SolrRequest {
                             });
 
                             res.on('end', () => {
-                                resolve(JSON.parse(data));
+                                const response = JSON.parse(data);
+                                if (response.error) {
+                                    reject(response.error.msg);
+                                }
+                                else {
+                                    resolve(JSON.parse(data));
+                                }
                             });
                         },
                     )
