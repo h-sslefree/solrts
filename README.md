@@ -8,6 +8,7 @@ Using [Solr](https://lucene.apache.org/solr/) from JavaScript clients [may be st
 * leads to search logic that reads like a book
 * does not have any dependencies
 
+
 The library follows a prepare-execute pattern: you first specify different parts of the desired operation and then execute it. During execution the library will transform your input to an actual Solr url, post it to Solr and return Solr's response as a json object. You are on your own interpreting that response.
 
 ## Examples
