@@ -108,6 +108,16 @@ if (solrAnswer && solrAnswer.response && solrAnswer.response.docs) {
     // do something with the docs
 }
 ```
+#### specify facet in search response
+``` ts
+import { SolrClient } from 'solrts';
+const solrSearchOperation = new SolrClient(8.5).searchOperation;
+solrSearchOperation.in('AnExistingCollection').facetOnField('AnExistingField');
+const solrAnswer: any = await solrSearchOperation.execute(IpOrHostnameOfASolrNode, PortNumberWhereThatSolrNodeListensOn);
+if (solrAnswer && solrAnswer.response && solrAnswer.response.docs) {
+    // do something with the docs
+}
+```
 #### [filter](https://lucene.apache.org/solr/guide/8_5/common-query-parameters.html#CommonQueryParameters-Thefq_FilterQuery_Parameter) search results
 ##### filter on a value in a specific field
 ``` ts
