@@ -10,6 +10,7 @@ export class SearchOperation extends SolrRequest {
     private _start: number = 0;
     private _rows: number = 0;
     private _fq: SearchFilter[] = new Array<SearchFilter>();
+    private _facetOnField: string[] = new Array<string>();
     private _fl: string[] = new Array<string>();
     private readonly _wt = 'json';
     private _q: SearchQuery = new LuceneQuery();
@@ -46,6 +47,15 @@ export class SearchOperation extends SolrRequest {
      */
     public field(field: string): SearchOperation {
         this._fl.push(field);
+        return this;
+    }
+
+    /**
+     * @param {string} facetOnField : the field that Solr should create a facet for in the response
+     * @example : search.facetOnField('field1').facetOnField('field2');
+     */
+    public facetOnField(field: string): SearchOperation {
+        this._facetOnField.push(field);
         return this;
     }
 
@@ -110,6 +120,9 @@ export class SearchOperation extends SolrRequest {
         }
         if (this._fq.length) {
             request = `${request}&${this._fq.map((fq) => 'fq=' + fq.toHttpQueryStringParameter()).join('&')}`;
+        }
+        if (this._facetOnField.length) {
+            request = `${request}&facet=true&${this._facetOnField.map((field) => 'facet.field=' + field).join('&')}`;
         }
         if (this._fl.length) {
             request = `${request}&fl=${this._fl.join(',')}`;
