@@ -72,6 +72,17 @@ describe('SearchOperation', () => {
         expect(response.originalUrl).toContain(`fq=field1:(${value1}%20OR%20${value2}%20OR%20${value3})`);
     });
 
+    it('should be able to specify a facet', async () => {
+        const search = new SearchOperation(apiVersion);
+        const field1 = 'field1';
+        const field2 = 'field2';
+        search.in('somecollection').facetOnField(field1).facetOnField(field2);
+        const response: { originalUrl: string } = await search.execute('localhost', solrPort);
+        expect(response.originalUrl).toContain(`facet=true`);
+        expect(response.originalUrl).toContain(`facet.field=${field1}`);
+        expect(response.originalUrl).toContain(`facet.field=${field2}`);
+    });
+
     it('should be able to specify a filter with a date value', async () => {
         const search = new SearchOperation(apiVersion);
         const value = new Date();
