@@ -11,7 +11,7 @@ steps:
   - task: NodeTool@0
     displayName: 'Prepare'
     inputs:
-      versionSpec: '12.x'
+      versionSpec: '14.x'
   - script: |
       npm install
       npm test
