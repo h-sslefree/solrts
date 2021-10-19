@@ -9,7 +9,7 @@ pool:
 
 steps:
   - task: NodeTool@0
-    displayName: 'Install NodeJS'
+    displayName: 'Prepare'
     inputs:
       versionSpec: '12.x'
   - script: |
@@ -22,4 +22,5 @@ steps:
     displayName: 'Release'
     condition: ne(variables['Build.Reason'], 'PullRequest')
     env:
-      NPM_TOKEN: '$()'
+      NPM_TOKEN: '$(NPM_TOKEN)'
+      GH_TOKEN: '$(GH_TOKEN)'
