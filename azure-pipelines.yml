@@ -21,6 +21,3 @@ steps:
   - script: npx semantic-release
     displayName: 'Release'
     condition: ne(variables['Build.Reason'], 'PullRequest')
-    env:
-      NPM_TOKEN: '$(NPM_TOKEN)'
-      GH_TOKEN: '$(GH_TOKEN)'
