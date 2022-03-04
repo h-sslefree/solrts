@@ -3,6 +3,9 @@ import { CollectionOperation } from './lib/cloud/CollectionOperation';
 import { ConfigsetOperation } from './lib/cloud/ConfigsetOperation';
 import { AliasOperation } from './lib/cloud/AliasOperation';
 import { IndexOperation } from './lib/index/IndexOperation';
+
+export { RawQuery } from './lib/search/RawQuery';
+export { LuceneQuery } from './lib/search/LuceneQuery';
 export { SearchFilter } from './lib/search/SearchFilter';
 
 export class SolrClient {

@@ -3,6 +3,7 @@ import * as express from 'express';
 import { Router } from 'express';
 import { SearchOperation } from '../src/lib/search/SearchOperation';
 import { LuceneQuery } from '../src/lib/search/LuceneQuery';
+import { RawQuery } from '../src/lib/search/RawQuery';
 import { SearchFilter } from '../src/lib/search/SearchFilter';
 
 describe('SearchOperation', () => {
@@ -196,6 +197,12 @@ describe('SearchOperation', () => {
     it('should escape special characters', () => {
         expect(new LuceneQuery().term('+ - && || ! ( ) { } [ ] ^ " ~ * ? : /').toString()).toEqual(
             '*:("\\+ \\- \\&& \\|| \\! \\( \\) \\{ \\} \\[ \\] \\^ \\" \\~ \\* \\? \\: \\/")',
+        );
+    });
+
+    it('should be able to perform a raw query', () => {
+        expect(new RawQuery().term('started:[2003-01-01T00:00:00.000Z TO 2004-01-01T00:00:00.000Z] OR ended:[2003-01-01T00:00:00.000Z TO 2004-01-01T00:00:00.000Z]').toString()).toEqual(
+            'started:[2003-01-01T00:00:00.000Z TO 2004-01-01T00:00:00.000Z] OR ended:[2003-01-01T00:00:00.000Z TO 2004-01-01T00:00:00.000Z]',
         );
     });
 });
